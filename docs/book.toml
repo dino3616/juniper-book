@@ -1,0 +1,6 @@
+[book]
+authors = ["dino3616"]
+language = "ja"
+multilingual = false
+src = "src"
+title = "Juniper - GraphQL Server for Rust 日本語版"
