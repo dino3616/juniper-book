@@ -36,10 +36,12 @@ mdbook build
 
 ~~本書に掲載されているすべてのExampleを検証するテストを実行するには、以下を実行します。~~
 
-<!-- ```bash
+<!--
+```bash
 cd ./tests
 cargo test
-``` -->
+```
+-->
 
 ## Test setup
 
