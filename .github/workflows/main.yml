@@ -6,7 +6,7 @@ on:
     paths:
     - "docs/src/**"
     - "docs/book.toml"
-    - "./.github/workflows/main.yml"
+    - ".github/workflows/main.yml"
 
 jobs:
   deploy:
