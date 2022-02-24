@@ -4,8 +4,9 @@ on:
     branches:
     - main
     paths:
-    - "src/**"
-    - "book.toml"
+    - "docs/src/**"
+    - "docs/book.toml"
+    - "./.github/workflows/main.yml"
 
 jobs:
   deploy:
