@@ -2,6 +2,8 @@
 
 こちらはRustのGraphQL APIであるJuniperのドキュメントの日本語訳です。
 
+## Note
+
 **これは非公式であり、常に最新版であるとは限らないことに注意してください。**
 
 ## Documentation
