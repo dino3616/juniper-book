@@ -1,12 +1,14 @@
-# Learning Juniper
+# Japanese Translation of Juniper Book
 
-このリポジトリはRustのGraphQL APIであるJuniperを学ぶためのものです。
+こちらはRustのGraphQL APIであるJuniperのドキュメントの日本語訳です。
+
+**これは非公式であり、常に最新版であるとは限らないことに注意してください。**
 
 ## Documentation
 
-### Installation
+### Install locally
 
-Juniperの日本語訳ドキュメントをインストールするには、以下のコマンドを実行します。
+Juniperの日本語訳ドキュメントをローカルにインストールするには、以下のコマンドを実行します。
 
 ```bash
 git clone https://github.com/Factorialers/Learning_Juniper

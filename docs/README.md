@@ -30,23 +30,19 @@ mdbook serve
 mdbook build
 ```
 
-出力は`./_rendered`ディレクトリになります。
+出力は~~`./_rendered`ディレクトリ~~ `./book` ディレクトリになります。
 
 ### Running the tests
 
-本書に掲載されているすべてのExampleを検証するテストを実行するには、以下を実行します。
+~~本書に掲載されているすべてのExampleを検証するテストを実行するには、以下を実行します。~~
 
-```bash
+<!-- ```bash
 cd ./tests
 cargo test
-```
+``` -->
 
 ## Test setup
 
-本サイトに掲載されているRustのExampleはすべてCI上でコンパイルされています。
+~~本サイトに掲載されているRustのExampleはすべてCI上でコンパイルされています。~~
 
-これは、[skeptic](https://github.com/budziq/rust-skeptic)ライブラリを使用して実行されます。
-
-## Notes
-
-著作権とか怖いので、一応Private Repositoryとしています。
+~~これは、[skeptic](https://github.com/budziq/rust-skeptic)ライブラリを使用して実行されます。~~
