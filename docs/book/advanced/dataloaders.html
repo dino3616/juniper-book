@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>データローダーによるN+1問題の回避 - Juniper - GraphQL Server for Rust 日本語版</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="../quickstart.html"><strong aria-hidden="true">2.</strong> クイックスタート</a></li><li class="chapter-item expanded "><a href="../types/index.html"><strong aria-hidden="true">3.</strong> 型システム</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/objects/defining_objects.html"><strong aria-hidden="true">3.1.</strong> オブジェクトの定義</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/objects/complex_fields.html"><strong aria-hidden="true">3.1.1.</strong> 複雑なフィールド</a></li><li class="chapter-item expanded "><a href="../types/objects/using_contexts.html"><strong aria-hidden="true">3.1.2.</strong> コンテキストを使う</a></li><li class="chapter-item expanded "><a href="../types/objects/error_handling.html"><strong aria-hidden="true">3.1.3.</strong> エラーハンドリング</a></li></ol></li><li class="chapter-item expanded "><a href="../types/other-index.html"><strong aria-hidden="true">3.2.</strong> その他の型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/enums.html"><strong aria-hidden="true">3.2.1.</strong> 列挙型</a></li><li class="chapter-item expanded "><a href="../types/interfaces.html"><strong aria-hidden="true">3.2.2.</strong> インターフェイス</a></li><li class="chapter-item expanded "><a href="../types/input_objects.html"><strong aria-hidden="true">3.2.3.</strong> 入力オブジェクト</a></li><li class="chapter-item expanded "><a href="../types/scalars.html"><strong aria-hidden="true">3.2.4.</strong> スカラー</a></li><li class="chapter-item expanded "><a href="../types/unions.html"><strong aria-hidden="true">3.2.5.</strong> ユニオン</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../schema/schemas_and_mutations.html"><strong aria-hidden="true">4.</strong> スキーマとミューテーション</a></li><li class="chapter-item expanded "><a href="../servers/index.html"><strong aria-hidden="true">5.</strong> サーバーを追加する</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../servers/official.html"><strong aria-hidden="true">5.1.</strong> Juniperによる連携</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../servers/warp.html"><strong aria-hidden="true">5.1.1.</strong> Warp</a></li><li class="chapter-item expanded "><a href="../servers/rocket.html"><strong aria-hidden="true">5.1.2.</strong> Rocket</a></li><li class="chapter-item expanded "><a href="../servers/iron.html"><strong aria-hidden="true">5.1.3.</strong> Iron</a></li><li class="chapter-item expanded "><a href="../servers/hyper.html"><strong aria-hidden="true">5.1.4.</strong> Hyper</a></li></ol></li><li class="chapter-item expanded "><a href="../servers/third_party.html"><strong aria-hidden="true">5.2.</strong> サードパーティとの連携</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced/index.html"><strong aria-hidden="true">6.</strong> 高度なトッピク</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced/introspection.html"><strong aria-hidden="true">6.1.</strong> イントロスペクション</a></li><li class="chapter-item expanded "><a href="../advanced/non_struct_objects.html"><strong aria-hidden="true">6.2.</strong> 非構造体オブジェクト</a></li><li class="chapter-item expanded "><a href="../advanced/implicit_and_explicit_null.html"><strong aria-hidden="true">6.3.</strong> 暗黙的および明示的なNULL</a></li><li class="chapter-item expanded "><a href="../advanced/objects_and_generics.html"><strong aria-hidden="true">6.4.</strong> オブジェクトとジェネリクス</a></li><li class="chapter-item expanded "><a href="../advanced/multiple_ops_per_request.html"><strong aria-hidden="true">6.5.</strong> 1回のリクエストで複数の操作を行う</a></li><li class="chapter-item expanded "><a href="../advanced/dataloaders.html" class="active"><strong aria-hidden="true">6.6.</strong> データローダーによるN+1問題の回避</a></li><li class="chapter-item expanded "><a href="../advanced/subscriptions.html"><strong aria-hidden="true">6.7.</strong> サブスクリプション</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Juniper - GraphQL Server for Rust 日本語版</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="データローダーによるn1問題の回避"><a class="header" href="#データローダーによるn1問題の回避">データローダーによるN+1問題の回避</a></h1>
+<p>Graphqlサーバーに共通する問題は、リゾルバがデータソースに問い合わせる方法です。
+この問題により、不必要なデータベースクエリーやhttpリクエストが大量に発生します。
+例えば、あるカルト宗教に属する人々をリストアップしたいとします。</p>
+<pre><code class="language-graphql">query {
+  persons {
+    id
+    name
+    cult {
+      id
+      name
+    }
+  }
+}
+</code></pre>
+<p>SQLデータベースで実行されるのは、次のようなものでしょう。</p>
+<pre><code class="language-sql">SELECT id, name, cult_id FROM persons;
+SELECT id, name FROM cults WHERE id = 1;
+SELECT id, name FROM cults WHERE id = 1;
+SELECT id, name FROM cults WHERE id = 1;
+SELECT id, name FROM cults WHERE id = 1;
+SELECT id, name FROM cults WHERE id = 2;
+SELECT id, name FROM cults WHERE id = 2;
+SELECT id, name FROM cults WHERE id = 2;
+# ...
+</code></pre>
+<p>ユーザーのリストが返されると、各ユーザーのカルトを検索するために別のクエリーが実行されます。
+これはすぐに問題になることがおわかりいただけると思います。</p>
+<p>これに対する一般的な解決策は、<strong>dataloader</strong> を導入することです。
+これはJuniperで<a href="https://github.com/cksac/dataloader-rs">cksac/dataloader-rs</a>というクレートを使って行うことができ、キャッシュ型と非キャッシュ型の2種類のdataloaderを持っています。</p>
+<h4 id="キャッシュローダー"><a class="header" href="#キャッシュローダー">キャッシュローダー</a></h4>
+<p><code>DataLoader</code>はメモ化キャッシュを提供します。与えられたキーで<code>.load()</code>が一度呼ばれた後、結果の値は冗長なロードを排除するためにキャッシュされます。</p>
+<p><code>DataLoader</code>のキャッシュは、RedisやMemcache、その他のアプリケーションレベルの共有キャッシュを置き換えるものではありません。<code>DataLoader</code>は、何よりもまずデータロードのメカニズムであり、そのキャッシュは、アプリケーションへの単一のリクエストのコンテキストで同じデータを繰り返しロードしないという目的を果たすだけです。<a href="https://github.com/graphql/dataloader#caching">(続きを読む)</a></p>
+<h3 id="どのようなものですか"><a class="header" href="#どのようなものですか">どのようなものですか？</a></h3>
+<pre><code class="language-toml">[dependencies]
+actix-identity = &quot;0.4.0-beta.4&quot;
+actix-rt = &quot;1.0&quot;
+actix-web = {version = &quot;2.0&quot;, features = []}
+juniper = { git = &quot;https://github.com/graphql-rust/juniper&quot; }
+futures = &quot;0.3&quot;
+postgres = &quot;0.15.2&quot;
+dataloader = &quot;0.12.0&quot;
+async-trait = &quot;0.1.30&quot;
+</code></pre>
+<pre><code class="language-rust  ignore">// use dataloader::cached::Loader;
+use dataloader::non_cached::Loader;
+use dataloader::BatchFn;
+use std::collections::HashMap;
+use postgres::{Connection, TlsMode};
+use std::env;
+
+pub fn get_db_conn() -&gt; Connection {
+    let pg_connection_string = env::var(&quot;DATABASE_URI&quot;).expect(&quot;need a db uri&quot;);
+    println!(&quot;Connecting to {}&quot;, pg_connection_string);
+    let conn = Connection::connect(&amp;pg_connection_string[..], TlsMode::None).unwrap();
+    println!(&quot;Connection is fine&quot;);
+    conn
+}
+
+#[derive(Debug, Clone)]
+pub struct Cult {
+  pub id: i32,
+  pub name: String,
+}
+
+pub fn get_cult_by_ids(hashmap: &amp;mut HashMap&lt;i32, Cult&gt;, ids: Vec&lt;i32&gt;) {
+  let conn = get_db_conn();
+  for row in &amp;conn
+    .query(&quot;SELECT id, name FROM cults WHERE id = ANY($1)&quot;, &amp;[&amp;ids])
+    .unwrap()
+  {
+    let cult = Cult {
+      id: row.get(0),
+      name: row.get(1),
+    };
+    hashmap.insert(cult.id, cult);
+  }
+}
+
+pub struct CultBatcher;
+
+#[async_trait]
+impl BatchFn&lt;i32, Cult&gt; for CultBatcher {
+
+    // 各オリジナルキーと カルト を対応させた配列を返す必要があるため、ハッシュマップを使用します.
+    async fn load(&amp;self, keys: &amp;[i32]) -&gt; HashMap&lt;i32, Cult&gt; {
+        println!(&quot;load cult batch {:?}&quot;, keys);
+        let mut cult_hashmap = HashMap::new();
+        get_cult_by_ids(&amp;mut cult_hashmap, keys.to_vec());
+        cult_hashmap
+    }
+}
+
+pub type CultLoader = Loader&lt;i32, Cult, CultBatcher&gt;;
+
+// 新規にローダーを作成する.
+pub fn get_loader() -&gt; CultLoader {
+    Loader::new(CultBatcher)
+      // 通常、DataLoaderは、実行中の1フレーム内で発生する個々のロードをすべてまとめ、要求されたすべてのキーでバッチ関数を呼び出します.
+      // しかし、この動作が好ましくない、あるいは最適でない場合があります.
+      // おそらく、リクエストはその後の数回のティックに分散されることを想定しているのでしょう.
+      // See: https://github.com/cksac/dataloader-rs/issues/12 
+      // More info: https://github.com/graphql/dataloader#batch-scheduling 
+      // Yield Countが大きいと、より多くのリクエストをバッチに追加できますが、実際にロードされるまでの待ち時間が長くなります.
+      .with_yield_count(100)
+}
+
+#[juniper::graphql_object(Context = Context)]
+impl Cult {
+  //  あなたのリゾルバ
+
+  // データローダを呼び出す.
+  pub async fn cult_by_id(ctx: &amp;Context, id: i32) -&gt; Cult {
+    ctx.cult_loader.load(id).await
+  }
+}
+
+</code></pre>
+<h3 id="どうやって呼び出すのですか"><a class="header" href="#どうやって呼び出すのですか">どうやって呼び出すのですか？</a></h3>
+<p>データローダを作成すると、非同期関数 <code>.load()</code> と <code>.load_many()</code> を持つようになります。
+上記の例では、 <code>cult_loader.load(id: i32).await</code> が <code>Cult</code> を返します。もし <code>cult_loader.load_many(Vec&lt;i32&gt;).await</code> を使用していれば、 <code>Vec&lt;Cult&gt;</code> を返していたことでしょう。</p>
+<h3 id="データローダーはどこで作成するのですか"><a class="header" href="#データローダーはどこで作成するのですか">データローダーはどこで作成するのですか？</a></h3>
+<p>データローダーは、あるユーザーが他のユーザーから認証された範囲外のキャッシュ/バッチデータをロードできるバグのリスクを回避するために、リクエストごとに作成する必要があります。
+個々のリゾルバ内にデータローダを作成すると、バッチ処理の発生が妨げられ、 データローダの利点が損なわれることになります。</p>
+<p>例えば、<em>あなたのコンテキストを宣言するとき</em></p>
+<pre><code class="language-rust  ignore">use juniper;
+
+#[derive(Clone)]
+pub struct Context {
+    pub cult_loader: CultLoader,
+}
+
+impl juniper::Context for Context {}
+
+impl Context {
+    pub fn new(cult_loader: CultLoader) -&gt; Self {
+        Self {
+            cult_loader
+        }
+    }
+}
+</code></pre>
+<p><em>GraphQLのハンドラ(注意：ここでコンテキストをインスタンス化すると、リクエストごとに保持されます)</em></p>
+<pre><code class="language-rust  ignore">pub async fn graphql(
+    st: web::Data&lt;Arc&lt;Schema&gt;&gt;,
+    data: web::Json&lt;GraphQLRequest&gt;,
+) -&gt; Result&lt;HttpResponse, Error&gt; {
+
+    // コンテキストの設定.
+    let cult_loader = get_loader();
+    let ctx = Context::new(cult_loader);
+
+    // 実行.
+    let res = data.execute(&amp;st, &amp;ctx).await; 
+    let json = serde_json::to_string(&amp;res).map_err(error::ErrorInternalServerError)?;
+
+    Ok(HttpResponse::Ok()
+        .content_type(&quot;application/json&quot;)
+        .body(json))
+}
+</code></pre>
+<h3 id="さらなる例"><a class="header" href="#さらなる例">さらなる例</a></h3>
+<p><code>Dataloaders</code> と <code>Context</code> を使った完全な例は <a href="https://github.com/jayy-lmao/rust-graphql-docker">jayy-lmao/rust-graphql-docker</a> を参照してください。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../advanced/multiple_ops_per_request.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../advanced/subscriptions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../advanced/multiple_ops_per_request.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../advanced/subscriptions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

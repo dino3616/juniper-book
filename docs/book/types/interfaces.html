@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>インターフェイス - Juniper - GraphQL Server for Rust 日本語版</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="../quickstart.html"><strong aria-hidden="true">2.</strong> クイックスタート</a></li><li class="chapter-item expanded "><a href="../types/index.html"><strong aria-hidden="true">3.</strong> 型システム</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/objects/defining_objects.html"><strong aria-hidden="true">3.1.</strong> オブジェクトの定義</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/objects/complex_fields.html"><strong aria-hidden="true">3.1.1.</strong> 複雑なフィールド</a></li><li class="chapter-item expanded "><a href="../types/objects/using_contexts.html"><strong aria-hidden="true">3.1.2.</strong> コンテキストを使う</a></li><li class="chapter-item expanded "><a href="../types/objects/error_handling.html"><strong aria-hidden="true">3.1.3.</strong> エラーハンドリング</a></li></ol></li><li class="chapter-item expanded "><a href="../types/other-index.html"><strong aria-hidden="true">3.2.</strong> その他の型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/enums.html"><strong aria-hidden="true">3.2.1.</strong> 列挙型</a></li><li class="chapter-item expanded "><a href="../types/interfaces.html" class="active"><strong aria-hidden="true">3.2.2.</strong> インターフェイス</a></li><li class="chapter-item expanded "><a href="../types/input_objects.html"><strong aria-hidden="true">3.2.3.</strong> 入力オブジェクト</a></li><li class="chapter-item expanded "><a href="../types/scalars.html"><strong aria-hidden="true">3.2.4.</strong> スカラー</a></li><li class="chapter-item expanded "><a href="../types/unions.html"><strong aria-hidden="true">3.2.5.</strong> ユニオン</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../schema/schemas_and_mutations.html"><strong aria-hidden="true">4.</strong> スキーマとミューテーション</a></li><li class="chapter-item expanded "><a href="../servers/index.html"><strong aria-hidden="true">5.</strong> サーバーを追加する</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../servers/official.html"><strong aria-hidden="true">5.1.</strong> Juniperによる連携</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../servers/warp.html"><strong aria-hidden="true">5.1.1.</strong> Warp</a></li><li class="chapter-item expanded "><a href="../servers/rocket.html"><strong aria-hidden="true">5.1.2.</strong> Rocket</a></li><li class="chapter-item expanded "><a href="../servers/iron.html"><strong aria-hidden="true">5.1.3.</strong> Iron</a></li><li class="chapter-item expanded "><a href="../servers/hyper.html"><strong aria-hidden="true">5.1.4.</strong> Hyper</a></li></ol></li><li class="chapter-item expanded "><a href="../servers/third_party.html"><strong aria-hidden="true">5.2.</strong> サードパーティとの連携</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced/index.html"><strong aria-hidden="true">6.</strong> 高度なトッピク</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced/introspection.html"><strong aria-hidden="true">6.1.</strong> イントロスペクション</a></li><li class="chapter-item expanded "><a href="../advanced/non_struct_objects.html"><strong aria-hidden="true">6.2.</strong> 非構造体オブジェクト</a></li><li class="chapter-item expanded "><a href="../advanced/implicit_and_explicit_null.html"><strong aria-hidden="true">6.3.</strong> 暗黙的および明示的なNULL</a></li><li class="chapter-item expanded "><a href="../advanced/objects_and_generics.html"><strong aria-hidden="true">6.4.</strong> オブジェクトとジェネリクス</a></li><li class="chapter-item expanded "><a href="../advanced/multiple_ops_per_request.html"><strong aria-hidden="true">6.5.</strong> 1回のリクエストで複数の操作を行う</a></li><li class="chapter-item expanded "><a href="../advanced/dataloaders.html"><strong aria-hidden="true">6.6.</strong> データローダーによるN+1問題の回避</a></li><li class="chapter-item expanded "><a href="../advanced/subscriptions.html"><strong aria-hidden="true">6.7.</strong> サブスクリプション</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Juniper - GraphQL Server for Rust 日本語版</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="インターフェイス"><a class="header" href="#インターフェイス">インターフェイス</a></h1>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQLインターフェース</a>は、Java や C# などの一般的なオブジェクト指向言語で知られているインターフェースによく対応していますが、残念ながら Rust には完全に対応する概念がありません。<a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQLインターフェース</a>に最も近いアナログはRust traitで、主な違いは、GraphQLでは<a href="https://spec.graphql.org/June2018/#sec-Interfaces">interface type</a>は抽象化と boxed 値(具象実装者にダウンキャスト可能)として機能しますが、Rustではtraitは抽象化のみでその boxed 値を表現するにはenumやtrait objectなどの別のタイプが必要_です、Rust traitでは型自体を表現しないので値を持てないのです。この違いは、Rustで<a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQLインターフェース</a>を表現しようとしたときに、直感的でない、明らかでないコーナーケースをもたらしますが、一方で、どの型がインターフェースを支えるのか、そしてどのように解決するのかを完全に制御することができます。</p>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQLインターフェース</a>を実装するために、Juniperは <code>#[graphql_interface]</code> マクロを提供します。</p>
+<h2 id="トレイト"><a class="header" href="#トレイト">トレイト</a></h2>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQLインターフェース</a>を定義するためには trait の定義が必須です。これは Rust における abstraction を記述する 自明な方法だからです。すべての<a href="https://spec.graphql.org/June2018/#sec-Interfaces">interface</a>フィールドは、traitメソッドによって計算されたものとして定義されます。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::graphql_interface;
+
+#[graphql_interface]
+trait Character {
+    fn id(&amp;self) -&gt; &amp;str;
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<p>ただし、このような<a href="https://spec.graphql.org/June2018/#sec-Interfaces">interface</a>の値を返すためには、その実装者と、この特質の boxed 値を表すRust型を提供する必要があります。この型は，enum型と<a href="https://doc.rust-lang.org/reference/types/trait-object.html">trait object</a>の2種類があります．</p>
+<h3 id="既定の列挙値"><a class="header" href="#既定の列挙値">既定の列挙値</a></h3>
+<p>デフォルトでは、Juniper は定義された <a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a> の値を表す enum を生成し、素直に <code>{Interface}Value</code> という名前を付けます。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::{graphql_interface, GraphQLObject};
+
+#[graphql_interface(for = [Human, Droid])] // すべてのインプリメンターの列挙が必須.
+trait Character {
+    fn id(&amp;self) -&gt; &amp;str;
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue)] // 列挙型の名前であり、traitの名前ではないことに注意してください.
+struct Human {
+    id: String,
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue)]
+struct Droid {
+    id: String,
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<p>また、必要に応じて、列挙型の名前を明示的に指定することができます。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::{graphql_interface, GraphQLObject};
+
+#[graphql_interface(enum = CharacterInterface, for = Human)] 
+trait Character {
+    fn id(&amp;self) -&gt; &amp;str;
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterInterface)]
+struct Human {
+    id: String,
+    home_planet: String,
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<h3 id="トレイトメソッドを無視する"><a class="header" href="#トレイトメソッドを無視する">トレイトメソッドを無視する</a></h3>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a>のフィールドとして想定するため、一部のtraitメソッドを省略し、無視したい場合があります。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::{graphql_interface, GraphQLObject};
+
+#[graphql_interface(for = Human)]  
+trait Character {
+    fn id(&amp;self) -&gt; &amp;str;
+
+    #[graphql(ignore)] // または #[graphql(skip)], お好みで。
+    fn ignored(&amp;self) -&gt; u32 { 0 }
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue)]
+struct Human {
+    id: String,
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<h3 id="フィールド引数インターフェースのカスタマイズ"><a class="header" href="#フィールド引数インターフェースのカスタマイズ">フィールド、引数、インターフェースのカスタマイズ</a></h3>
+<p><a href="https://spec.graphql.org/June2018/#sec-Objects">GraphQLオブジェクト</a>と同様に、Juniperでは<a href="https://spec.graphql.org/June2018/#sec-Interfaces">interface</a>のフィールドとその引数を完全にカスタマイズすることができます。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(deprecated)]
+</span><span class="boring">extern crate juniper;
+</span>use juniper::graphql_interface;
+
+// GraphQLスキーマのインターフェイスの名前を変更します.
+#[graphql_interface(name = &quot;MyCharacter&quot;)] 
+// GraphQLスキーマでインターフェイスを記述します.
+#[graphql_interface(description = &quot;My own character.&quot;)]
+// 通常の Rust docs も GraphQL インターフェイスの記述としてサポートされていますが、 description 属性が指定されている場合は、そちらが優先されます.
+/// このdocはGraphQLスキーマには存在しません. 
+trait Character {
+    // GraphQLスキーマのフィールド名を変更します.
+    #[graphql(name = &quot;myId&quot;)]
+    // GraphQL スキーマのフィールドを非推奨とします.
+    // 通常の Rust #[deprecated] 属性も非推奨フィールドとしてサポートされているが、 deprecated 属性引数が指定されていれば、そちらが優先されます.
+    #[graphql(deprecated = &quot;Do not use it.&quot;)]
+    // GraphQL スキーマでフィールドを記述します.
+    #[graphql(description = &quot;ID of my own character.&quot;)]
+    // Rust の通常のドキュメントもフィールドの説明としてサポートされているが、 description`属性が指定されていれば、そちらが優先される。
+    /// GraphQLスキーマにはこの記述はありません.
+    fn id(
+        &amp;self,
+        // GraphQLスキーマでの引数の名前を変更します.
+        #[graphql(name = &quot;myNum&quot;)]
+        // GraphQLスキーマで引数を記述します.
+        #[graphql(description = &quot;ID number of my own character.&quot;)]
+        // 引数のデフォルト値を指定します.
+        // 具体的な値は省略可能で、その場合は Default::default のものが使用されます.
+        #[graphql(default = 5)]
+        num: i32,
+    ) -&gt; &amp;str;
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<p>すべての<a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a>フィールドと引数のリネームポリシーもサポートされています。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(deprecated)]
+</span><span class="boring">extern crate juniper;
+</span>use juniper::graphql_interface;
+
+#[graphql_interface(rename_all = &quot;none&quot;)] // リネームを無効にします.
+trait Character {
+    // スキーマで my_id と my_num として公開されるようになりました.
+    fn my_id(&amp;self, my_num: i32) -&gt; &amp;str;
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<h3 id="カスタムコンテキスト"><a class="header" href="#カスタムコンテキスト">カスタムコンテキスト</a></h3>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a> フィールドを解決するために、trait メソッドで <a href="https://docs.rs/juniper/0.14.2/juniper/trait.Context.html"><code>Context</code></a> が必要な場合は、引数として指定します。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span><span class="boring">use std::collections::HashMap;
+</span>use juniper::{graphql_interface, GraphQLObject};
+
+struct Database {
+    humans: HashMap&lt;String, Human&gt;,
+}
+impl juniper::Context for Database {}
+
+#[graphql_interface(for = Human)] // 見て、ママ、コンテキストの型が推論されてる! ＼(^o^)／
+trait Character {
+    // フィールドの引数が context または ctx という名前であれば、自動的にコンテキスト引数として扱われます.
+    fn id(&amp;self, context: &amp;Database) -&gt; Option&lt;&amp;str&gt;;
+
+    // そうでない場合は、明示的にコンテキスト引数としてマークすることができます.
+    fn name(&amp;self, #[graphql(context)] db: &amp;Database) -&gt; Option&lt;&amp;str&gt;;
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue, Context = Database)]
+struct Human {
+    id: String,
+    name: String,
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<h3 id="エクゼキュータと明示的なジェネリックスカラを使う"><a class="header" href="#エクゼキュータと明示的なジェネリックスカラを使う">エクゼキュータと明示的なジェネリックスカラを使う</a></h3>
+<p><a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a> フィールドを解決するために trait メソッド内で <a href="https://docs.rs/juniper/latest/juniper/struct.Executor.html"><code>Executor</code></a> が必要な場合、それを引数として指定します。</p>
+<p>この場合、<a href="https://docs.rs/juniper/latest/juniper/struct.Executor.html"><code>Executor</code></a> がそうであるように、明示的に <a href="https://docs.rs/juniper/latest/juniper/trait.ScalarValue.html"><code>ScalarValue</code></a> をパラメトリックにする必要があります。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::{graphql_interface, graphql_object, Executor, LookAheadMethods as _, ScalarValue};
+
+#[graphql_interface(for = Human, Scalar = S)] // 既存の型パラメータとして ScalarValue を指定している.
+trait Character&lt;S: ScalarValue&gt; {             
+    // フィールドの引数が executor という名前であれば、自動的にエグゼキュータ引数として扱われます.
+    fn id&lt;'a&gt;(&amp;self, executor: &amp;'a Executor&lt;'_, '_, (), S&gt;) -&gt; &amp;'a str;
+
+    // そうでない場合は、エグゼキュータ引数として明示的にマークすることができます.
+    fn name&lt;'b&gt;(
+        &amp;'b self,
+        #[graphql(executor)] another: &amp;Executor&lt;'_, '_, (), S&gt;,
+    ) -&gt; &amp;'b str;
+    
+    fn home_planet(&amp;self) -&gt; &amp;str;
+}
+
+struct Human {
+    id: String,
+    name: String,
+    home_planet: String,
+}
+#[graphql_object(scalar = S: ScalarValue, impl = CharacterValue&lt;S&gt;)]
+impl Human {
+    async fn id&lt;'a, S&gt;(&amp;self, executor: &amp;'a Executor&lt;'_, '_, (), S&gt;) -&gt; &amp;'a str 
+    where
+        S: ScalarValue,
+    {
+        executor.look_ahead().field_name()
+    }
+
+    async fn name&lt;'b, S&gt;(&amp;'b self, #[graphql(executor)] _: &amp;Executor&lt;'_, '_, (), S&gt;) -&gt; &amp;'b str {
+        &amp;self.name
+    }
+    
+    fn home_planet&lt;'c, S&gt;(&amp;'c self, #[graphql(executor)] _: &amp;Executor&lt;'_, '_, (), S&gt;) -&gt; &amp;'c str {
+        // トレイトメソッドにはエクゼキュータが存在しない場合があります.
+        &amp;self.home_planet
+    }
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+<h2 id="scalarvalueの考察"><a class="header" href="#scalarvalueの考察">ScalarValueの考察</a></h2>
+<p>デフォルトでは <code>#[graphql_interface]</code> マクロは <a href="https://docs.rs/juniper/latest/juniper/trait.ScalarValue.html"><code>ScalarValue</code></a> 型に対するジェネリックコードを生成します。これは、<a href="https://spec.graphql.org/June2018/#sec-Interfaces">GraphQL interface</a> の実装者のうち少なくとも1人が、その実装において具象的な <a href="https://docs.rs/juniper/latest/juniper/trait.ScalarValue.html"><code>ScalarValue</code></a> 型に制限されている場合に問題を引き起こす可能性があります。このような問題を解決するためには、具象 <a href="https://docs.rs/juniper/latest/juniper/trait.ScalarValue.html"><code>ScalarValue</code></a> 型を指定する必要があります。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate juniper;
+</span>use juniper::{graphql_interface, DefaultScalarValue, GraphQLObject};
+
+#[graphql_interface(for = [Human, Droid])]
+#[graphql_interface(scalar = DefaultScalarValue)] // この行を削除すると、コンパイルに失敗します.
+trait Character {
+    fn id(&amp;self) -&gt; &amp;str;
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue, Scalar = DefaultScalarValue)]
+struct Human {
+    id: String,
+    home_planet: String,
+}
+
+#[derive(GraphQLObject)]
+#[graphql(impl = CharacterValue, Scalar = DefaultScalarValue)]
+struct Droid {
+    id: String,
+    primary_function: String,
+}
+<span class="boring">
+</span><span class="boring">fn main() {}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../types/enums.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../types/input_objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../types/enums.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../types/input_objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
