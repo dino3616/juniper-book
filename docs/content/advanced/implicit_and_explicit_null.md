@@ -22,10 +22,7 @@ The former is an explicit null and the latter is an implicit null.
 
 There are some situations where it's useful to know which one the user provided.
 
-For example, let's say your business logic has a function that allows users to
-perform a "patch" operation on themselves. Let's say your users can optionally
-have favorite and least favorite numbers, and the input for that might look
-like this:
+For example, let's say your business logic has a function that allows users to perform a "patch" operation on themselves. Let's say your users can optionally have favorite and least favorite numbers, and the input for that might look like this:
 
 ```rust
 /// Updates user attributes. Fields that are `None` are left as-is.
@@ -40,22 +37,19 @@ pub struct UserPatch {
 # fn main() {}
 ```
 
-To set a user's favorite number to 7, you would set `favorite_number` to
-`Some(Some(7))`. In GraphQL, that might look like this:
+To set a user's favorite number to 7, you would set `favorite_number` to `Some(Some(7))`. In GraphQL, that might look like this:
 
 ```graphql
 mutation { patchUser(patch: { favoriteNumber: 7 }) }
 ```
 
-To unset the user's favorite number, you would set `favorite_number` to
-`Some(None)`. In GraphQL, that might look like this:
+To unset the user's favorite number, you would set `favorite_number` to `Some(None)`. In GraphQL, that might look like this:
 
 ```graphql
 mutation { patchUser(patch: { favoriteNumber: null }) }
 ```
 
-If you want to leave the user's favorite number alone, you would set it to
-`None`. In GraphQL, that might look like this:
+If you want to leave the user's favorite number alone, you would set it to `None`. In GraphQL, that might look like this:
 
 ```graphql
 mutation { patchUser(patch: {}) }
@@ -113,5 +107,4 @@ impl Mutation {
 # fn main() {}
 ```
 
-This type functions much like `Option`, but has two empty variants so you can
-distinguish between implicit and explicit null.
+This type functions much like `Option`, but has two empty variants so you can distinguish between implicit and explicit null.

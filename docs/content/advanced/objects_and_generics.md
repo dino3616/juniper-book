@@ -1,16 +1,10 @@
 # Objects and generics
 
-Yet another point where GraphQL and Rust differs is in how generics work. In
-Rust, almost any type could be generic - that is, take type parameters. In
-GraphQL, there are only two generic types: lists and non-nullables.
+Yet another point where GraphQL and Rust differs is in how generics work. In Rust, almost any type could be generic - that is, take type parameters. In GraphQL, there are only two generic types: lists and non-nullables.
 
-This poses a restriction on what you can expose in GraphQL from Rust: no generic
-structs can be exposed - all type parameters must be bound. For example, you can
-not make e.g. `Result<T, E>` into a GraphQL type, but you _can_ make e.g.
-`Result<User, String>` into a GraphQL type.
+This poses a restriction on what you can expose in GraphQL from Rust: no generic structs can be exposed - all type parameters must be bound. For example, you can not make e.g. `Result<T, E>` into a GraphQL type, but you _can_ make e.g. `Result<User, String>` into a GraphQL type.
 
-Let's make a slightly more compact but generic implementation of [the last
-chapter](non_struct_objects.md):
+Let's make a slightly more compact but generic implementation of [the last chapter](non_struct_objects.md):
 
 ```rust
 # extern crate juniper;
@@ -55,12 +49,6 @@ impl MutationResult<ForumPost> {
 # fn main() {}
 ```
 
-Here, we've made a wrapper around `Result` and exposed some concrete
-instantiations of `Result<T, E>` as distinct GraphQL objects. The reason we
-needed the wrapper is of Rust's rules for when you can derive a trait - in this
-case, both `Result` and Juniper's internal GraphQL trait are from third-party
-sources.
+Here, we've made a wrapper around `Result` and exposed some concrete instantiations of `Result<T, E>` as distinct GraphQL objects. The reason we needed the wrapper is of Rust's rules for when you can derive a trait - in this case, both `Result` and Juniper's internal GraphQL trait are from third-party sources.
 
-Because we're using generics, we also need to specify a name for our
-instantiated types. Even if Juniper _could_ figure out the name,
-`MutationResult<User>` wouldn't be a valid GraphQL type name.
+Because we're using generics, we also need to specify a name for our instantiated types. Even if Juniper _could_ figure out the name, `MutationResult<User>` wouldn't be a valid GraphQL type name.

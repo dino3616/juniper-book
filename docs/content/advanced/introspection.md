@@ -1,12 +1,8 @@
 # Introspection
 
-GraphQL defines a special built-in top-level field called `__schema`. Querying
-for this field allows one to [introspect the schema](https://graphql.org/learn/introspection/)
-at runtime to see what queries and mutations the GraphQL server supports.
+GraphQL defines a special built-in top-level field called `__schema`. Querying for this field allows one to [introspect the schema](https://graphql.org/learn/introspection/) at runtime to see what queries and mutations the GraphQL server supports.
 
-Because introspection queries are just regular GraphQL queries, Juniper supports
-them natively. For example, to get all the names of the types supported one
-could execute the following query against Juniper:
+Because introspection queries are just regular GraphQL queries, Juniper supports them natively. For example, to get all the names of the types supported one could execute the following query against Juniper:
 
 ```graphql
 {
@@ -20,14 +16,9 @@ could execute the following query against Juniper:
 
 ## Schema introspection output as JSON
 
-Many client libraries and tools in the GraphQL ecosystem require a complete
-representation of the server schema. Often this representation is in JSON and
-referred to as `schema.json`. A complete representation of the schema can be
-produced by issuing a specially crafted introspection query.
+Many client libraries and tools in the GraphQL ecosystem require a complete representation of the server schema. Often this representation is in JSON and referred to as `schema.json`. A complete representation of the schema can be produced by issuing a specially crafted introspection query.
 
-Juniper provides a convenience function to introspect the entire schema. The
-result can then be converted to JSON for use with tools and libraries such as
-[graphql-client](https://github.com/graphql-rust/graphql-client):
+Juniper provides a convenience function to introspect the entire schema. The result can then be converted to JSON for use with tools and libraries such as [graphql-client](https://github.com/graphql-rust/graphql-client):
 
 ```rust
 # #![allow(unused_variables)]

@@ -38,13 +38,12 @@ A common solution to this is to introduce a **dataloader**.
 This can be done with Juniper using the crate [cksac/dataloader-rs](https://github.com/cksac/dataloader-rs), which has two types of dataloaders; cached and non-cached.
 
 #### Cached Loader
+
 DataLoader provides a memoization cache, after .load() is called once with a given key, the resulting value is cached to eliminate redundant loads.
 
 DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application. [(read more)](https://github.com/graphql/dataloader#caching)
 
 ### What does it look like?
-
-!FILENAME Cargo.toml
 
 ```toml
 [dependencies]
@@ -139,7 +138,6 @@ impl Cult {
 
 Once created, a dataloader has the async functions `.load()` and `.load_many()`.
 In the above example `cult_loader.load(id: i32).await` returns `Cult`. If  we had used `cult_loader.load_many(Vec<i32>).await` it would have returned `Vec<Cult>`.
-
 
 ### Where do I create my dataloaders?
 

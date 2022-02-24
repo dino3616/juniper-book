@@ -31,5 +31,5 @@
   * [暗黙的および明示的なNULL](advanced/implicit_and_explicit_null.md)
   * [オブジェクトとジェネリクス](advanced/objects_and_generics.md)
   * [1回のリクエストで複数の操作を行う](advanced/multiple_ops_per_request.md)
-  * [データロード](advanced/dataloaders.md)
+  * [データローダーによるN+1問題の回避](advanced/dataloaders.md)
   * [サブスクリプション](advanced/subscriptions.md)
