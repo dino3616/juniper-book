@@ -39,7 +39,7 @@ Juniperは、スキーマの構築を容易にするために、非常に一般�
 
 ## API の安定性
 
-Juniperはまだ1.0に到達していないため、APIが不安定になることが予想されます。
+Juniperはまだ 1.0 に到達していないため、APIが不安定になることが予想されます。
 
 [graphql]: http://graphql.org
 [graphiql]: https://github.com/graphql/graphiql
