@@ -1,27 +1,54 @@
 # Japanese Translation of Juniper Book
 
-こちらはRustのGraphQL APIであるJuniperのドキュメントの日本語訳です。
+こちらはRust用GraphQL APIである[Juniper](https://github.com/graphql-rust/juniper)が提供する[Book](https://graphql-rust.github.io)の非公式な日本語訳です。
 
 ## Note
 
 **これは非公式であり、常に最新版であるとは限らないことに注意してください。**
 
-## Documentation
+## Contributing
 
-### Install locally
+### Requirements
 
-Juniperの日本語訳ドキュメントをローカルにインストールするには、以下のコマンドを実行します。
+このサイトは、[mdBook](https://github.com/rust-lang-nursery/mdBook)を使って作られています。
+
+以下のコマンドでインストールできます。
 
 ```bash
-git clone https://github.com/Factorialers/Learning_Juniper
-cd Learning_Juniper/docs
 cargo install mdbook
 ```
 
-### Usage
+### Starting a local test server
 
-ドキュメントの閲覧には、以下のコマンドを実行します。
+継続的にページを再構築し、自動で再読み込みするローカルのテストサーバーを起動するには、次のように実行します。
 
 ```bash
-mdbook serve --open
+mdbook serve
 ```
+
+### Building the book
+
+以下のコマンドで、レンダリングされたHTMLにページをビルドすることができます。
+
+```bash
+mdbook build
+```
+
+出力は~~`./_rendered`ディレクトリ~~ `./book` ディレクトリになります。
+
+### Running the tests
+
+~~本書に掲載されているすべてのExampleを検証するテストを実行するには、以下を実行します。~~
+
+<!--
+```bash
+cd ./tests
+cargo test
+```
+-->
+
+## Test setup
+
+~~本サイトに掲載されているRustのExampleはすべてCI上でコンパイルされています。~~
+
+~~これは、[skeptic](https://github.com/budziq/rust-skeptic)ライブラリを使用して実行されます。~~

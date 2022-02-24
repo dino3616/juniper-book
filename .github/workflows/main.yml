@@ -4,8 +4,8 @@ on:
     branches:
     - main
     paths:
-    - "docs/src/**"
-    - "docs/book.toml"
+    - "src/**"
+    - "book.toml"
     - ".github/workflows/main.yml"
     - ".github/actions/build/Dockerfile"
 
@@ -22,4 +22,4 @@ jobs:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         external_repository: dino3616/Japanese-Translation-of-Juniper-Book
         PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./docs/book
+        PUBLISH_DIR: ./book
