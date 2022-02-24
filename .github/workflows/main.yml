@@ -20,4 +20,4 @@ jobs:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         external_repository: dino3616/Japanese-Translation-of-Juniper-Book
         PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./book
+        PUBLISH_DIR: ./docs/book
