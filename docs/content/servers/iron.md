@@ -1,13 +1,8 @@
 # Integrating with Iron
 
-[Iron] is a library that's been around for a while in the Rust sphere but lately
-hasn't seen much of development. Nevertheless, it's still a solid library with a
-familiar request/response/middleware architecture that works on Rust's stable
-channel.
+[Iron] is a library that's been around for a while in the Rust sphere but lately hasn't seen much of development. Nevertheless, it's still a solid library with a familiar request/response/middleware architecture that works on Rust's stable channel.
 
 Juniper's Iron integration is contained in the `juniper_iron` crate:
-
-!FILENAME Cargo.toml
 
 ```toml
 [dependencies]
@@ -15,18 +10,13 @@ juniper = "0.15.7"
 juniper_iron = "0.7.4"
 ```
 
-Included in the source is a [small
-example](https://github.com/graphql-rust/juniper_iron/blob/master/examples/iron_server.rs)
-which sets up a basic GraphQL and [GraphiQL] handler.
+Included in the source is a [small example](https://github.com/graphql-rust/juniper_iron/blob/master/examples/iron_server.rs) which sets up a basic GraphQL and [GraphiQL] handler.
 
 ## Basic integration
 
-Let's start with a minimal schema and just get a GraphQL endpoint up and
-running. We use [mount] to attach the GraphQL handler at `/graphql`.
+Let's start with a minimal schema and just get a GraphQL endpoint up and running. We use [mount] to attach the GraphQL handler at `/graphql`.
 
-The `context_factory` function will be executed on every request and can be used
-to set up database connections, read session token information from cookies, and
-set up other global data that the schema might require.
+The `context_factory` function will be executed on every request and can be used to set up database connections, read session token information from cookies, and set up other global data that the schema might require.
 
 In this example, we won't use any global data so we just return an empty value.
 
@@ -75,8 +65,7 @@ fn main() {
 
 ## Accessing data from the request
 
-If you want to access e.g. the source IP address of the request from a field
-resolver, you need to pass this data using Juniper's [context feature](../types/objects/using_contexts.md).
+If you want to access e.g. the source IP address of the request from a field resolver, you need to pass this data using Juniper's [context feature](../types/objects/using_contexts.md).
 
 ```rust,ignore
 # extern crate juniper;

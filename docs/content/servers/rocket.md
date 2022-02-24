@@ -1,12 +1,8 @@
 # Integrating with Rocket
 
-[Rocket] is a web framework for Rust that makes it simple to write fast web applications without sacrificing flexibility or type safety. All with minimal code. Rocket
-does not work on Rust's stable channel and instead requires the nightly
-channel.
+[Rocket] is a web framework for Rust that makes it simple to write fast web applications without sacrificing flexibility or type safety. All with minimal code. Rocket does not work on Rust's stable channel and instead requires the nightly channel.
 
 Juniper's Rocket integration is contained in the [`juniper_rocket`][juniper_rocket] crate:
-
-!FILENAME Cargo.toml
 
 ```toml
 [dependencies]

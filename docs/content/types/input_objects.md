@@ -1,8 +1,6 @@
 # Input objects
 
-Input objects are complex data structures that can be used as arguments to
-GraphQL fields. In Juniper, you can define input objects using a custom derive
-attribute, similar to simple objects and enums:
+Input objects are complex data structures that can be used as arguments to GraphQL fields. In Juniper, you can define input objects using a custom derive attribute, similar to simple objects and enums:
 
 ```rust
 # #![allow(unused_variables)]
@@ -30,8 +28,7 @@ impl Root {
 
 ## Documentation and renaming
 
-Just like the [other](objects/defining_objects.md) [derives](enums.md), you can rename
-and add documentation to both the type and the fields:
+Just like the [other](objects/defining_objects.md) [derives](enums.md), you can rename and add documentation to both the type and the fields:
 
 ```rust
 # #![allow(unused_variables)]

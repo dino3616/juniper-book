@@ -7,9 +7,6 @@ The most obvious and straightforward way to represent a [GraphQL union][1] in Ru
 - `#[derive(GraphQLUnion)]` macro for enums and structs.
 - `#[graphql_union]` for traits.
 
-
-
-
 ## Enums
 
 Most of the time, we just need a trivial and straightforward Rust enum to represent a [GraphQL union][1].
@@ -40,7 +37,6 @@ enum Character {
 #
 # fn main() {}
 ```
-
 
 ### Ignoring enum variants
 
@@ -81,7 +77,6 @@ enum Character<S> {
 #
 # fn main() {}
 ```
-
 
 ### External resolver functions
 
@@ -186,9 +181,6 @@ impl Character {
 # fn main() {}
 ```
 
-
-
-
 ## Structs
 
 Using Rust structs as [GraphQL unions][1] is very similar to using enums, with the nuance that specifying an external resolver function is the only way to declare a [GraphQL union][1] variant.
@@ -241,9 +233,6 @@ impl Character {
 # fn main() {}
 ```
 
-
-
-
 ## Traits
 
 To use a Rust trait definition as a [GraphQL union][1] you need to use the `#[graphql_union]` macro. [Rust doesn't allow derive macros on traits](https://doc.rust-lang.org/stable/reference/procedural-macros.html#derive-macros), so using `#[derive(GraphQLUnion)]` on traits doesn't work.
@@ -284,7 +273,6 @@ impl Character for Droid {
 #
 # fn main() {}
 ```
-
 
 ### Custom context
 
@@ -338,7 +326,6 @@ impl Character for Droid {
 # fn main() {}
 ```
 
-
 ### Ignoring trait methods
 
 As with enums, we may want to omit some trait methods to be assumed as [GraphQL union][1] variants and ignore them.
@@ -379,7 +366,6 @@ impl Character for Droid {
 #
 # fn main() {}
 ```
-
 
 ### External resolver functions
 
@@ -446,9 +432,6 @@ fn get_droid<'db>(ch: &DynCharacter<'_>, ctx: &'db Database) -> Option<&'db Droi
 # fn main() {}
 ```
 
-
-
-
 ## `ScalarValue` considerations
 
 By default, `#[derive(GraphQLUnion)]` and `#[graphql_union]` macros generate code, which is generic over a [`ScalarValue`][2] type. This may introduce a problem when at least one of [GraphQL union][1] variants is restricted to a concrete [`ScalarValue`][2] type in its implementation. To resolve such problem, a concrete [`ScalarValue`][2] type should be specified:
@@ -480,10 +463,6 @@ enum Character {
 #
 # fn main() {}
 ```
-
-
-
-
 
 [1]: https://spec.graphql.org/June2018/#sec-Unions
 [2]: https://docs.rs/juniper/latest/juniper/trait.ScalarValue.html

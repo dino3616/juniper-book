@@ -7,19 +7,13 @@ These three define the root query fields, mutations and subscriptions of the sch
 
 The usage of subscriptions is a little different from the mutation and query objects, so there is a specific [section][section] that discusses them.
 
-Both query and mutation objects are regular GraphQL objects, defined like any
-other object in Juniper. The mutation and subscription objects, however, are optional since schemas
-can be read-only and do not require subscriptions. If mutation/subscription functionality is not needed, consider using [EmptyMutation][EmptyMutation]/[EmptySubscription][EmptySubscription].
+Both query and mutation objects are regular GraphQL objects, defined like any other object in Juniper. The mutation and subscription objects, however, are optional since schemas can be read-only and do not require subscriptions. If mutation/subscription functionality is not needed, consider using [EmptyMutation][EmptyMutation]/[EmptySubscription][EmptySubscription].
 
-In Juniper, the `RootNode` type represents a schema. When the schema is first created,
-Juniper will traverse the entire object graph
-and register all types it can find. This means that if you define a GraphQL
-object somewhere but never reference it, it will not be exposed in a schema.
+In Juniper, the `RootNode` type represents a schema. When the schema is first created, Juniper will traverse the entire object graph and register all types it can find. This means that if you define a GraphQL object somewhere but never reference it, it will not be exposed in a schema.
 
 ## The query root
 
-The query root is just a GraphQL object. You define it like any other GraphQL
-object in Juniper, most commonly using the `graphql_object` proc macro:
+The query root is just a GraphQL object. You define it like any other GraphQL object in Juniper, most commonly using the `graphql_object` proc macro:
 
 ```rust
 # #![allow(unused_variables)]
@@ -41,8 +35,7 @@ impl Root {
 
 ## Mutations
 
-Mutations are _also_ just GraphQL objects. Each mutation is a single field
-that performs some mutating side-effect such as updating a database.
+Mutations are _also_ just GraphQL objects. Each mutation is a single field that performs some mutating side-effect such as updating a database.
 
 ```rust
 # #![allow(unused_variables)]
@@ -105,8 +98,7 @@ schema {
 }
 ```
 
-Note the `schema-language` feature may be turned off if you do not need this functionality to reduce dependencies and speed up
-compile times.
+Note the `schema-language` feature may be turned off if you do not need this functionality to reduce dependencies and speed up compile times.
 
 
 [schema_language]: https://graphql.org/learn/schema/#type-language

@@ -1,8 +1,7 @@
 # Integrating with Warp
 
 [Warp] is a super-easy, composable, web server framework for warp speeds.
-The fundamental building block of warp is the Filter: they can be combined and composed to express rich requirements on requests. Warp is built on [Hyper] and works on
-Rust's stable channel.
+The fundamental building block of warp is the Filter: they can be combined and composed to express rich requirements on requests. Warp is built on [Hyper] and works on Rust's stable channel.
 
 Juniper's Warp integration is contained in the [`juniper_warp`][juniper_warp] crate:
 
