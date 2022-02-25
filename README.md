@@ -34,7 +34,7 @@ mdbook serve
 mdbook build
 ```
 
-出力は~~`./_rendered`ディレクトリ~~ `./book` ディレクトリになります。
+出力は ~~`./_rendered`ディレクトリ~~ `./book` ディレクトリになります。
 
 ### Running the tests
 
